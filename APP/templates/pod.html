@@ -1,0 +1,130 @@
+<html>
+<head>
+    <title> POD </title>
+    <style>
+        #paper{
+            /* 8.5 x 11 inches */
+            width: 624px;
+            height: 912px;
+            /*border: solid 1px black;*/
+            /* 1 inch margin */
+            padding: 72px 96px;
+        }
+        #paper h1{
+            font-size: 2em;
+        }
+        #paper section{
+            margin-top: 50px;
+            height: auto;
+        }
+        
+        img{
+            width: 150px;
+            float: right;
+        }
+        .info{
+            float: left;
+            width: 33.3%;
+            margin-bottom: 30px;
+        }
+        #paper .info h1{
+            font-size: 1em;
+        }
+        table{
+            width: 100%;
+        }
+        table th{
+            text-align: left;
+        }
+        footer{
+            position: absolute;
+            bottom: 0px
+        }
+        footer .line{
+            border-top: solid 1px black;
+            margin-top: 10px;
+        }
+        footer #signatureLine {
+            margin-top: 60px;
+        }
+        footer #signature{
+            height: 50px;
+            width: auto;
+            float: left;
+            margin-top: -10px;
+            display: block;
+        }
+
+    </style>
+</head>
+    
+<body>
+    <section id="paper">
+        <img alt="Pallet" src=" {{ logo_file_path }} ">
+        <h1> POD #: {{pod_number}}</h1>
+        {% for key in ref_numbers %}
+            {% if key != 'Primary' %}
+                <h5>{{ key }}: {{ ref_numbers[key] }}</h5>
+            {% endif %}
+        {% endfor %}
+
+        <section id="info">
+            <article class="info">
+                <h1> Shipper Information: </h1>
+                <p> Company: {{ shipper_company }}</p>
+                <p> Phone Number: {{ shipper_phone }}</p>
+                <p> Address: {{ shipper_address_dict['address'] }}</p>
+                <p> City: {{ shipper_address_dict['city'] }}</p>
+                <p> State: {{ shipper_address_dict['state'] }}</p>
+                <p> Zip: {{ shipper_address_dict['zip'] }}</p>
+            </article>
+
+            <article class="info">
+                <h1> Pick Up Information: </h1>
+                <p> Company: {{pickup_company}}</p>
+                <p> Phone Number: {{ pickup_phone }}</p>
+                <p> Address: {{pickup_address_dict['address'] }}</p>
+                <p> City: {{ pickup_address_dict['city'] }}</p>
+                <p> State: {{ pickup_address_dict['state'] }}</p>
+                <p> Zip: {{ pickup_address_dict['zip'] }}</p>
+            </article>
+
+            <article class="info">
+                <h1> Drop Off Information: </h1>
+                <p> Company: {{ dropoff_company }}</p>
+                <p> Phone Number: {{ dropoff_phone }}</p>
+                <p> Address: {{ dropoff_address_dict['address'] }}</p>
+                <p> City: {{ dropoff_address_dict['city'] }}</p>
+                <p> State: {{ dropoff_address_dict['state'] }}</p>
+                <p> Zip: {{ dropoff_address_dict['zip'] }}</p>
+            </article>
+        </section>
+
+        
+        <table id="Mike's Table">
+            <tr>
+                <th> Commodity </th>
+                <th> # of Pallets </th>
+                <th> # of Pieces </th>
+                <th> Weight (lbs) </th>
+            </tr>
+            <tr>
+                <td> {{commodity}} </td>
+                <td> {{num_pallets}} </td>
+                <td> {{num_pieces}} </td>
+                <td> {{weight}} </td>
+            </tr>
+        </table>
+
+        <footer>
+            <p> Shipment accepted in acceptable condition by: </p>
+            <img src="{{ signature_path }}" id="signature">
+            <p class="line" id="signatureLine"> Signature </p>
+            <p> {{signee_name}} </p>
+            <p class="line"> Print Name </p>
+            <p> {{date}}</p>
+            <p class="line"> Date </p>
+        </footer>
+    </section>
+</body>
+</html>

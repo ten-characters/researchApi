@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html style="background-color: #171f24; color: #e0dce0; text-align: center; font-family: 'Ubuntu', sans-serif;">
+<head>
+    <title>E-mail from Pallet</title>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'
+    type='text/css'>
+    <style>
+    html{
+        background-color: #171f24;
+        color: #e0dce0;
+        text-align: center;
+        font-family: 'Ubuntu', sans-serif;
+        }
+        img{
+        max-width: 120px;
+        min-width: 60px;
+        margin: 15px;
+        }
+        section{
+        width: 85%;
+        background-color: #212a32;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 10px 25px;
+        font-size: 1.2em;
+        }
+        #button{
+        max-width: 300px;
+        width: 90%;
+        height: 50px;
+        margin: auto;
+        border-radius: 20px;
+        background-color: #9b80c4;
+        padding-top: 5px;
+        }
+        #button p{
+        color: #171f24;
+        margin-top: 10px;
+        }
+        #button:hover{
+        opacity: .8;
+        cursor: pointer;
+        }
+        footer{
+        width: 85%;
+        max-width: 850px;
+        text-align: left;
+        margin: 0 auto;
+        font-size: .8em;
+        }
+        .opening{
+        text-align: left;
+        }
+        #closing{
+        text-align: right;
+        }
+        a{
+        text-decoration: none;
+        color: grey;
+        }
+        h1{
+        color: #9b80c4;
+        font-size: 1.6em;
+        margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img alt="palletLogo" src="https://truckpallet.com/static/images/whiteLogo.png" width="20%" style="max-width: 120px; min-width: 60px; margin: 15px;">
+    </header>
+
+    <section style="width: 85%; background-color: #212a32; max-width: 800px; margin: 0 auto; padding: 10px 25px; font-size: 1.2em;">
+
+    {% if header %}
+	    <h1 style="color: #9b80c4; font-size: 1.6em; margin-bottom: 10px;">{{ header }}</h1>
+	{% endif %}
+
+    {% if header %}
+        <p class="opening" style="text-align: left;" >Hi there {{ name }},</p>
+    {% else %}
+        <p class="opening" style="text-align: left;" >Hi there,</p>
+    {% endif %}
+
+        <p>{{ message_body }}</p>
+
+	{% if button_link %}
+        <a href="{{ button_link }}">
+        <div id="button" style="max-width: 300px; width: 90%; height: 50px; margin: auto; border-radius: 20px; background-color: #9b80c4; padding-top: 5px;">
+            <p style="color: #171f24; margin-top: 10px;">{{ button_text }}</p>
+        </div></a>
+	{% endif %}
+
+        <p id="closing" style="text-align: right;">Best,<br>
+        Team Pallet</p>
+    </section>
+
+    <footer style="width: 85%; max-width: 850px; text-align: left; margin: 0 auto; font-size: .8em;">
+        <p>Pallet Technologies Inc.<br>
+        <a href="http://www.truckpallet.com" style="text-decoration: none; color: grey;">TruckPallet.com</a></p>
+    </footer>
+
+</body>
+</html>
