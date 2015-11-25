@@ -4,13 +4,15 @@
 
 0. Install monogodb (3.0.x) or newest (make sure compatible)
 1. Create database
-2. Create mongo user: API with credentials: 
-    db.createUser( {
-    user:'admin',
-    pwd:'password', 
+2. Create mongo user: API with credentials:  
+```
+    db.createUser( {  
+    user:'admin',  
+    pwd:'password',  
     roles:[ { role: "readWrite", db: "database" } ]
     }
 )
+```
 3. Install python3.4  
     * Create virtualenv for api  
     * Install from the requirements file: pip install -r requirements.txt  
