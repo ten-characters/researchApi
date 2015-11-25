@@ -1,14 +1,12 @@
 __author__ = 'austin'
 
+import braintree
+from datetime import timedelta
 from flask import Flask
-from flask_mongoengine import MongoEngine
 from flask_bcrypt import Bcrypt
 from flask_mail import Mail
+from flask_mongoengine import MongoEngine
 from itsdangerous import URLSafeTimedSerializer
-
-from datetime import timedelta
-
-import braintree
 
 # APP
 app = Flask(__name__)
@@ -23,35 +21,35 @@ app = Flask(__name__)
 # Configure
 
 # PRODUCTION
-# server = 'https://api.truckpallet.com'
+# server = 'https://api.serveraddress.com'
 # base_api_ext = ''
-# base_web_url = 'https://truckpallet.com'
+# base_web_url = 'https://serveraddress.com'
 # DEBUG = False
-# S3_MEDIA_BUCKET = 'media.truckpallet.com'
+# S3_MEDIA_BUCKET = 'media.serveraddress.com'
 #
 # TESTING
-server = 'https://test.truckpallet.com'
+server = 'https://test.serveraddress.com'
 base_api_ext = '/api'
-base_web_url = 'https://test.truckpallet.com'
+base_web_url = 'https://test.serveraddress.com'
 DEBUG = True
-S3_MEDIA_BUCKET = 'media.test.truckpallet.com'
+S3_MEDIA_BUCKET = 'media.test.serveraddress.com'
 
 # ROUTER LOCAL
 # server = 'http://192.168.1.6'
 # base_api_ext = '/api'
 # base_web_url = 'http://localhost:8001'
 # DEBUG = True
-# S3_MEDIA_BUCKET = 'media.test.truckpallet.com'
+# S3_MEDIA_BUCKET = 'media.test.serveraddress.com'
 
 # LOCAL
 # server = 'http://localhost:8000'
 # base_api_ext = ''
 # base_web_url = 'http://localhost:8001'
 # DEBUG = True
-# S3_MEDIA_BUCKET = 'media.test.truckpallet.com'
+# S3_MEDIA_BUCKET = 'media.test.serveraddress.com'
 
 
-SECRET_KEY = 'asdjfupk'
+SECRET_KEY = 'secret'
 app.config["DEBUG"] = DEBUG
 app.config["SECRET_KEY"] = SECRET_KEY
 app.config['DEFAULT_PARSERS'] = [
@@ -61,17 +59,17 @@ app.config['DEFAULT_PARSERS'] = [
 ]
 
 app.config["MONGODB_SETTINGS"] = {
-    'db': 'Pallet',
-    'username': 'API',
-    'password': 'pork&11eelT6'
+    'db': 'database',
+    'username': 'admin',
+    'password': 'password'
 }
 
-app.config['MAIL_SERVER'] = 'mail.truckpallet.com'
+app.config['MAIL_SERVER'] = 'mail.serveraddress.com'
 app.config['MAIL_PORT'] = 25
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
-app.config['MAIL_USERNAME'] = 'pallet@truckpallet.com'
-app.config['MAIL_PASSWORD'] = 'pork&11eelT'
+app.config['MAIL_USERNAME'] = 'email@serveraddress.com'
+app.config['MAIL_PASSWORD'] = 'password'
 
 app.config['ACTIVE_DRIVER_THRESHOLD'] = timedelta(hours=3)
 
@@ -90,24 +88,24 @@ mail = Mail(app)
 # BRAINTREE
 if DEBUG:
     # Sandbox
-    merchant_master_id = 'pallettechnologies'
+    merchant_master_id = 'masterid'
     braintree.Configuration.configure(
         braintree.Environment.Sandbox,
-        merchant_id='gvkw62s2533kbsb8',
-        public_key='wdv8q6zvkt9m4k85',
-        private_key='ef639623cfbd21b1f3782d32d017761e'
+        merchant_id='merchant',
+        public_key='public',
+        private_key='private'
     )
-    PALLET_PAYMENT_TOKEN = '4knzmr'
+    PALLET_PAYMENT_TOKEN = 'token'
 else:
     # Production
-    merchant_master_id = 'PalletTechnologilses_marketplace'
+    merchant_master_id = 'masterid'
     braintree.Configuration.configure(
         braintree.Environment.Production,
-        merchant_id='yw58frb322bb3rck',
-        public_key='f9wxr5rms9zwrbjf',
-        private_key='e184672b1c9405dea2c19e3f866890eb'
+        merchant_id='merchant',
+        public_key='public',
+        private_key='private'
     )
-    PALLET_PAYMENT_TOKEN = '4knzmr'
+    PALLET_PAYMENT_TOKEN = 'token'
 
 DAYS_HELD_IN_ESCROW = 3
 
@@ -115,20 +113,20 @@ DAYS_HELD_IN_ESCROW = 3
 
 # PARSE PUSH NOTIFICATIONS
 if DEBUG:
-    PARSE_MASTER = 'ev3sjvFeMRUxMEBwbJxa4srcAKONY4n9BMlWbYpI'
-    PARSE_APP_ID = '6Uggb7M4Mz5Hqk2mXoSEy0CIEZwNBFx3beiA1elb'
-    PARSE_REST_KEY = '6LtRGPnNMSJ7AspVDyfCckiF7OrokknhmX8x80W6'
+    PARSE_MASTER = 'master'
+    PARSE_APP_ID = 'app'
+    PARSE_REST_KEY = 'rest'
 else:
-    PARSE_MASTER = 'f3dDAZzLf9DMzrr64jwFYGDXe3M6yQh0HdtezxUL'
-    PARSE_APP_ID = 'k9ZfmNoqvfqARweaRKYJJbuPz9rPFM3aSp0o4Iye'
-    PARSE_REST_KEY = 'ms5FQ2rRUWx0hOjrJvzj7u7piyhKP5R75NWfp0ir'
+    PARSE_MASTER = 'master'
+    PARSE_APP_ID = 'app'
+    PARSE_REST_KEY = 'rest'
 
 
 PALLET_OFFER_SHIPMENT_KEY = "offer_shipment"
-PALLET_PHONE_NUMBER = '201-820-8945'
-PALLET_EMAIL = 'Pallet@truckpallet.com'
+PALLET_PHONE_NUMBER = '555-555-5555'
+PALLET_EMAIL = 'email@serveraddress.com'
 
-PALLET_SECRET_ADMIN_PASS = 'pork&11eelT6'
+PALLET_SECRET_ADMIN_PASS = 'secret'
 
 # Shipment offer times
 # SHIPMENT_HOURS_AVAILABLE = timedelta(hours=7)
@@ -200,7 +198,6 @@ def track_request(response):
     :param response:
     :return:
     """
-
 
     request_time = datetime.utcnow() - g.start
     return response

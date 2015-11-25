@@ -1,8 +1,8 @@
 __author__ = 'austin'
 
 from flask import Flask
-from flask_mongoengine import MongoEngine
 from flask_bcrypt import Bcrypt
+from flask_mongoengine import MongoEngine
 
 app = Flask(__name__)
 app.config['TESTING'] = True
@@ -13,9 +13,9 @@ app.config["MONGODB_SETTINGS"] = {
 }
 
 # app.config["MONGODB_SETTINGS"] = {
-#     'db': 'Pallet',
-#     'username': 'API',
-#     'password': 'pork&11eelT6'
+#     'db': '',
+#     'username': '',
+#     'password': ''
 # }
 db = MongoEngine(app)
 

@@ -1,8 +1,9 @@
 __author__ = 'austin'
 
-from datetime import datetime
 import json
 import random
+from datetime import datetime
+
 from APP.utility import DateTimeEncoder
 
 testPrice = json.dumps(
@@ -43,23 +44,23 @@ newShipperData = json.dumps(
 newDriverData = {
         'type': 'driver',
         'service': 'web',
-        'first_name': 'Mecca',
+    'first_name': '',
         'last_name': 'Tester',
-        'email': 'mecca14@test.com',
-        'password': 'mecca',
+    'email': '@test.com',
+    'password': '',
         'phone': 8023569513,
         'ext': 4,
-        'billing_address': '560 Marin Boulevard',
-        'billing_city': 'Jersey City',
-        'billing_state': 'NJ',
+    'billing_address': '',
+    'billing_city': '',
+    'billing_state': '',
         'billing_country': 'USA',
-        'billing_zip': '07059',
-        'current_street_address': '560 Marin Boulevard',
-        'current_city': 'Jersey City',
-        'current_state': 'NJ',
+    'billing_zip': '',
+    'current_street_address': '',
+    'current_city': '',
+    'current_state': '',
         'current_country': 'USA',
-        'current_zip': '07059',
-        'company': 'Mecca',
+    'current_zip': '',
+    'company': '',
         'location': (30.0, 40.0),
         'license_number': '909',
         'license_name': 'trizout',
@@ -130,7 +131,7 @@ newEndWarehouseManagerData = json.dumps(
         'billing_state': 'Old Bright',
         'billing_country': 'The US of O',
         'billing_zip': '07059',
-        'company': 'Jerry\'s Trucks',
+        'company': '',
         'location': (30.0, 40.0),
         'name': 'End Warehouse',
         'pickup_instructions': 'PickUP',
@@ -157,7 +158,7 @@ newShipmentData = json.dumps(
         'start_zip': '89403',
         'start_location': (30.0, 40.0),
         'start_email': 'thisismyemail@aim.com',
-        'start_pickup_instructions': 'Just get the fucker',
+        'start_pickup_instructions': 'Just get',
         'end_name': 'end Warehouse',
         'end_address': 'end Addr',
         'end_city': 'East BumbleButt',
@@ -204,7 +205,7 @@ newTruckData = json.dumps(
         'vin': '431',
         'plate': 'EFO 803',
         'year': 2019,
-        'model': 'MeccaBros'
+        'model': ''
     }
 )
 
@@ -215,7 +216,7 @@ newTrailerData = json.dumps(
         'vin': '431',
         'plate': 'EFO 8303',
         'year': 2019,
-        'model': 'MeccaBros',
+        'model': '',
         'model_type': 'Flatbed',
         'size': '40'
     }
@@ -229,7 +230,7 @@ ratingData = json.dumps(
 
 acceptApplicationData = json.dumps(
     {
-        'email': 'teampallet@gmail.com',
+        'email': 'a@gmail.com',
         'token': '.eJyLVipJTcwtSMzJSS1xSM9NzMzRS87PVdJRMjIwNNU1MNM1Mg4xNLMysrAyMNMzNjMyNDPBkDQxhkoaGZkrxQIAuogUWg.CGsalg.e5ihEn7T75mWSnlYNGaClmhPIw0',
         'is_accepted': True
     }
@@ -244,7 +245,7 @@ getDriversData = json.dumps(
 
 loginDataServe = json.dumps(
     {
-        'email': 'teampallet@gmail.com',
+        'email': 'a@gmail.com',
         'password': 'password'
     }
 )
@@ -266,13 +267,13 @@ newAdminData = json.dumps(
         'zip': '07030',
         'first_name': 'Fran',
         'last_name': 'Fran',
-        'email': 'fran@truckpallet.com',
-        'password': 'pork&11eelT',
+        'email': 'fran@server.com',
+        'password': 'password',
         'service': 'web',
         'dob': '02/27/1996',
         'phone': '9144797368',
         'ext': '',
-        'company': 'Pallet Technologies, Inc.',
+        'company': 'ten characters',
         'location': [40.7309441, -74.0392467]
     }
 )
@@ -294,7 +295,7 @@ testReset = json.dumps(
     {
         'email': 'austin.cawley@gmail.com',
         'reset_hash': '$2a$12$avsyW.DwddGr7huiFe2AD.wwv9gR81Lxpk0LwbquxwaPMBV24b7zO',
-        'new_password': 'pl31800Cagire'
+        'new_password': ''
     }
 )
 
@@ -308,24 +309,24 @@ testDownloaded = json.dumps(
 testAdminEmail = {
         'user_base': 'downloaded_users',
         'options': [],
-        'message_header': 'Thanks for downloading Pallet',
+    'message_header': 'Thanks for downloading',
         'message_body': ' We are greatly sorry for the broken link in our last email. Please use this instead.'
                         ' Sorry for the inconvenience.',
         'message_link_text': 'Click here to apply!',
-        'message_link_url': 'https://truckpallet.com/register/driver'
+    'message_link_url': 'https://serveraddress.com/register/driver'
     }
 
 
 adminLoginData = json.dumps(
     {
         'email': 'austin.cawley@gmail.com',
-        'password': 'pl31800Cagire'
+        'password': ''
     }
 )
 
 adminPasswordData = json.dumps(
     {
-        'admin_password': 'pork&11eelT6'
+        'admin_password': ''
     }
 )
 

@@ -121,7 +121,7 @@ STATE_FUEL_AVG_DICT = {}
 
 # Todo: Probably want to make this query on a per case basis !
 def update_average_prices():
-    connect('Pallet')
+    connect('fuel-prices')
     STATE_FUEL_AVG_DICT.clear()
     # Query the database for all in the last day
     last_prices_time = datetime.utcnow()

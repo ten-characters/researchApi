@@ -1,9 +1,8 @@
-from flask_testing import LiveServerTestCase
-from flask import make_response, request
 import json
 import requests
 from datetime import datetime
-
+from flask import make_response, request
+from flask_testing import LiveServerTestCase
 # FUNCTIONS TO TEST
 from APP.utility import create_pod
 from APP.models import Shipment, ActiveUser, Warehouse, Address
@@ -54,16 +53,16 @@ class PodTest(unittest.TestCase):
         shipper.reload()
 
         pickup_address = Address(
-            address='560 Marin Boulevard',
-            city='Jersey City',
+            address='',
+            city='',
             state='NJ',
             country='USA',
-            zip='07310'
+            zip=''
         )
         pickup = Warehouse(
             registered_by_service='unittest',
             registered_by_user=shipper,
-            name='Mecca and Sons Trucking',
+            name='',
             location=(42.0, -73.4),
             address=pickup_address,
             primary_email='pickup@test.com'
@@ -147,11 +146,11 @@ def createPOD():
 
 
         pickup_address = Address(
-            address='580 Marin Boulevard',
-            city='Jersey City',
+            address='',
+            city='',
             state='NJ',
             country='USA',
-            zip='07310'
+            zip=''
         )
 
         shipper = ActiveUser(
@@ -166,7 +165,7 @@ def createPOD():
         pickup = Warehouse(
             registered_by_service='unittest',
             registered_by_user=shipper,
-            name='Mecca and Sons Trucking 2',
+            name='',
             location=(42.0, -73.4),
             address=pickup_address,
             primary_email='pickup3@test.com'
@@ -269,16 +268,16 @@ createPOD()
 #     shipper.reload()
 #
 #     pickup_address = Address(
-#         address='560 Marin Boulevard',
-#         city='Jersey City',
+#         address=' ',
+#         city='',
 #         state='NJ',
 #         country='USA',
-#         zip='07310'
+#         zip=''
 #     )
 #     pickup = Warehouse(
 #         registered_by_service='unittest',
 #         registered_by_user=shipper,
-#         name='Mecca and Sons Trucking',
+#         name='',
 #         location=(42.0, -73.4),
 #         address=pickup_address,
 #         primary_email='pickup@test.com'
@@ -349,12 +348,12 @@ createPOD()
 #     #
 #     data = {
 #         'shipment_id': shipment.id,
-#         'signee_name': 'Michael Mecca'
+#         'signee_name': ''
 #     }
 #     files = {
 #         'signature': open('/home/austin/GitRepo/api/APP/temp/signature.jpg', 'rb')
 #     }
 #
-#     new_name = create_pod(shipment, files['signature'], 'Michael Mecca')
+#     new_name = create_pod(shipment, files['signature'], '')
 #
 #     return make_gen_success()
