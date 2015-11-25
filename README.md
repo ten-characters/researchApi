@@ -24,8 +24,8 @@
     * secret_key:'secret'
     * region:'us-east-1'
 7. Install wkhtmltopdf with sudo apt-get install wkhtmltopdf  
-8. https://github.com/JazzCore/python-pdfkit/blob/master/travis/before-script.sh  
-8.1. ^ For ubuntu/debian  
+8. https://github.com/JazzCore/python-pdfkit/blob/master/travis/before-script.sh
+    * ^ For ubuntu/debian  
     
 ## Some Explanations
 
